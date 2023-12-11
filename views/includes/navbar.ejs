@@ -11,46 +11,69 @@
 
   .search-inp {
     border-radius: 25px;
-    padding: 0 3rem;
-    margin-left: 3rem;
-    text-align: center;
+    padding: 0 4rem;
     font-size: 0.9rem;
-    border: 1px solid grey;
-  }
-  .navbar-collapse  {
-    color: white !important;
+    border: 1.5px solid grey;
+    margin-left: 15rem;
   }
 
+  @media (max-width: 768px) {
+    .search-inp {
+    padding: 0 2rem;
+    margin-left: 2rem;
+  }
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0.818);
+  }
+  .sidebar-logo {
+    margin-left: -0.3rem;
+  }
+  .sidebar-search {
+    margin-bottom: 0.5rem;
+  }
+  }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light sticky-top border-bottom navbar-">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav nav-item">
-          <a class="nav-link" href="/listings">Explore</a>
-        </div>
-        <div class="navbar-nav ms-auto">
+<nav class="navbar navbar-expand-md bg-body-light sticky-top border-bottom ">
+  <div class="container-fluid ">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <!--Toogler-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--SideBar-->
+    <div class="offcanvas offcanvas-end sidebar" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header mt-1">
+        <h5 class="offcanvas-title sidebar-logo" id="offcanvasNavbarLabel"><i class="fa-regular fa-compass"></i></h5>
+        <button type="button" class="btn-close shadow-none me-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <!--offcanvas body-->
+      <div class="offcanvas-body">
+        <div class="navbar-nav d-flex ms-auto sidebar-search">
           <form class="d-flex" role="search">
-            <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations">
+            <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" >
             <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
         </div>
-        <div class="navbar-nav ms-auto ">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <div class="navbar-nav d-flex ms-auto">
+          <ul class="navbar-nav justify-content-end ">
+            <li class="nav-item">
+              <a class="nav-link" href="/listings">Explore</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/listings/new">Airbnb your home</a>
+            </li>
+          </ul>
           <% if(!currUser) { %>
-          <a class="nav-link" href="/signup"><b>Sign up</b></a>
-          <a class="nav-link" href="/login"><b>Login</b></a>
+            <a class="nav-link" href="/signup"><b>Sign up</b></a>
+            <a class="nav-link" href="/login"><b>Login</b></a>
           <% } %>
           <% if(currUser) { %>
-          <a class="nav-link" href="/logout"><b>Log out</b></a>
+            <a class="nav-link" href="/logout"><b>Log out</b></a>
           <% } %>
         </div>
       </div>
     </div>
-  </nav>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script> -->
+  </div>
+</nav>
   

@@ -1,8 +1,26 @@
 <%- layout("/layouts/boilerplate") %>
 
+<style>
+    @media (max-width: 500px) {
+        .signup-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .signup-heading {
+            margin-left: 5rem;
+            font-weight: bold;
+            width: 20rem;
+        }
+        .signup-container input {
+            width: 15rem;
+        }
+    }
+</style>
 <div class="row mt-3">
-    <div class="col-6 offset-3">
-        <h3 class="col-8 offset-2 mb-3">Sign Up In Wanderlust</h3>
+    <div class="col-6 offset-3 signup-container">
+        <h3 class="col-8 offset-2 mb-3 signup-heading">Sign Up In Wanderlust</h3>
         <form action="/signup" method="post" class="needs-validation" novalidate>
             <div class="mb-3">
                 <lable for="username" class="form-label">Username</lable>
@@ -22,7 +40,7 @@
                 <lable for="password" class="form-label">Password</lable>
                 <input type="password" name="password" id="password" class="form-control" required>
             </div>
-            <button class="btn btn-success">SignUp</button>
+            <button class="btn btn-success">SignUp</button><br><br>
         </form>
     </div>
 </div>
